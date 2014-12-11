@@ -1,0 +1,140 @@
+html {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+    margin: 0;
+    padding: 60px 0 0;
+    height: 100%;
+    background: #e4e7e6;
+    overflow:hidden;
+    overflow-y: scroll;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Lucida Grande', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+header {
+	
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    
+    ul {
+        font-size: 14px;
+
+        margin: 0;
+        padding: 0 60px;
+
+        list-style-type: none;
+
+        color: #666;
+        li {
+            display: inline-block;
+
+            padding: 20px;
+
+            cursor: pointer;
+        }
+        li.header-search {
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+            width: 60px;
+            height: 60px;
+            background: center url(../images/newtab.search.svg) no-repeat;
+            background-size: 20px;
+        }
+        li.header-settings {
+        	position: absolute;
+        	top: 0;
+        	right: 0;
+            width: 60px;
+            height: 60px;
+            background: center url(../images/newtab.search.svg) no-repeat;
+            background-size: 20px;
+        }
+
+        li.is-active {
+            color: #fff;
+            background: #f18260;
+        }
+    }
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto 160px auto;
+}
+
+#search {
+	padding: 30px 16px;
+	input {
+		display: inline-block;
+		color: #666;
+		background: none;
+		background: 16px center url(../images/newtab.search.svg) no-repeat;
+		background-size: 22px;
+		border: 1px solid rgba(0,0,0,0.2);
+		border-style: solid;
+		font-size: 18px;
+		font-weight: 100;
+		padding: 16px 20px 16px 52px;
+		width: 50%;
+		max-width: 400px;
+		outline: none;
+	}	
+}
+#bookmarks {
+	    
+    .bookmark {
+        display: inline-block;
+
+        width: 23%;
+        margin: 1%;
+        
+        text-decoration: none;
+
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+        transition: border-color .1s;
+    	
+        &:hover {
+        	border-color: #ccc;
+        	box-shadow: 0 0 3px rgba(0,0,0,0.1);
+        }
+        .bookmark-background {
+            overflow: hidden;
+
+            height: 180px;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        .bookmark-title {
+            overflow: hidden;
+
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            color: #222;
+            padding: 8px 16px;
+        }
+        
+        &.is-thumbnail {
+        	.bookmark-background {
+	        	background-size: 102%;
+	        	background-position: center top;
+	        	padding: 0;
+	        }
+        }
+    }
+}

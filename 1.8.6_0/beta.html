@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Michal Šimonfy; http://virae.org">
+	<meta http-equiv="cache-control" content="public">
+	<meta http-equiv="expires" content="Wed, 1 Jan 2014 00:00:00 GMT">
+	<title i18n="newtab_new_tab">New tab</title>
+
+	<link rel="stylesheet/less" type="text/css" href="css/beta.less" />
+
+	<script src="js_system/common.js"></script>
+	<script src="js_system/options.js"></script>
+	<script src="js_system/themes.js"></script>
+
+	<script src="js/less.min.js"></script>
+	<script src="js/underscore.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-sanitize.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+		
+</head>
+
+<body ng-controller="speeddial">
+
+	<header>
+		<ul ng-cloak>
+			<li class="header-search"></li>
+			<li ng-class="0 == activeGroup ? 'is-active' : ''" ng-click="loadGroup(0)">Home</li>
+			<li ng-class="group.id == activeGroup ? 'is-active' : ''" ng-repeat="group in groups track by $index" ng-click="loadGroup(group.id)">
+				<a ng-bind-html="group.title"></a>
+			</li>
+			<li class="header-settings"></li>
+		</ul>
+	</header>
+	
+	<div class="container">
+	
+		<div id="search">
+			<input type="text" ng-keyup="keyPress($event)" ng-model="searchTerm">
+		</div>
+		
+		<section id="bookmarks">
+		
+			<a ng-href="{{bookmark.url}}" ng-data-id="bookmark.id" ng-repeat="bookmark in bookmarks track by $index" class="bookmark" ng-class="bookmark.thumbnail ? 'is-logo' : 'is-thumbnail'">
+				<div class="bookmark-background" style="background-image: url('{{getBackground(bookmark)}}')">
+				</div>
+				<div class="bookmark-title">
+					{{bookmark.title}}	
+				</div>
+			</a>
+			
+		</section>
+	
+	</div>
+
+	<script src="js_system/db.js"></script>
+	<script src="beta/js/db-beta.js"></script>
+	<script src="beta/js/beta.speeddial.js"></script>
+
+</body>
+</html>
